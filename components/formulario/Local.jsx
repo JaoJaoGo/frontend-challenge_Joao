@@ -94,7 +94,7 @@ const Local = () => {
     return (
         <div className="input-container">
             <div className="local-itens">
-                <label htmlFor="">País:</label>
+                <label>País:</label>
                 <Select
                     styles= {customStyles}
                     value={selectedCountry}
@@ -103,7 +103,7 @@ const Local = () => {
                 />
             </div>
             <div className="local-itens">
-                <label htmlFor="">Estado:</label>
+                <label>Estado:</label>
                 <Select
                     styles= {customStyles}
                     value={selectedState}
@@ -112,7 +112,7 @@ const Local = () => {
                 />
             </div>
             <div className="local-itens">
-                <label htmlFor="">Cidade:</label>
+                <label>Cidade:</label>
                 <Select
                     styles= {customStyles}
                     value={selectedCity}
