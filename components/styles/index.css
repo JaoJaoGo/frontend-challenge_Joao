@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background-color: #205cbe;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 519px;
+    padding: 54px 100px;
+}
+
+h1 {
+    font-weight: bold;
+    color: #575756;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 18px;
+    font-size: 18px;
+    border: none;
+    background-color: #d88015;
+    color: #fff;
+    border-radius: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(90%);
+}

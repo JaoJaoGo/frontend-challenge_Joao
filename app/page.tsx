@@ -1,9 +1,9 @@
-import Hello from "@/components/Hello";
+import Formulario from "@/components/formulario/index";
 
 export default function Home() {
   return (
-    <main>
-      <Hello />
+    <main className="app">
+      <Formulario />
     </main>
   );
 }
