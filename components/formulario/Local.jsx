@@ -55,9 +55,7 @@ const Local = () => {
     const handleCountryChange = (selectedOption) => {
         
         setSelectedCountry(selectedOption);
-        // Lógica adicional conforme necessário
 
-        // Exemplo de como obter estados/cidades de um país específico
         axios.get(`https://api.countrystatecity.in/v1/countries/${selectedOption.value}/states`)
             .then(response => {
                 const stateOptions = response.data.states.map(state => ({
@@ -75,9 +73,7 @@ const Local = () => {
 
     const handleStateChange = (selectedOption) => {
         setSelectedState(selectedOption);
-        // Lógica adicional conforme necessário
 
-        // Exemplo de como obter cidades de um estado específico
         axios.get(`https://api.example.com/cities?stateCode=${selectedOption.value}`)
             .then(response => {
                 const cityOptions = response.data.cities.map(city => ({
@@ -93,7 +89,6 @@ const Local = () => {
 
     const handleCityChange = (selectedOption) => {
         setSelectedCity(selectedOption);
-        // Lógica adicional conforme necessário
     };
 
     return (
