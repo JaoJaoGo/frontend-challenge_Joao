@@ -20,7 +20,7 @@ body {
     background-color: #205cbe;
 }
 
-.formulario {
+.box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,24 +29,15 @@ body {
     padding: 54px 100px;
 }
 
+hr {
+    width: 100%;
+}
+
 h1 {
     font-weight: bold;
     color: #575756;
 }
 
-button {
-    width: 100%;
-    margin-top: 15px;
-    padding: 18px;
-    font-size: 18px;
-    border: none;
-    background-color: #d88015;
-    color: #fff;
-    border-radius: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-button:hover {
-    filter: brightness(90%);
+.dados {
+    margin-top: 29px;
 }

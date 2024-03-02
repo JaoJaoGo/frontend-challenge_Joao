@@ -5,14 +5,6 @@ import axios from "axios";
 import '../styles/Inputs.css'
 
 const Local = () => {
-    const configCountry = {
-        method: 'get',
-        url: 'https://api.countrystatecity.in/v1/countries',
-        headers: {
-            'X-CSCAPI-KEY': 'API_KEY'
-        }
-    };
-
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
@@ -38,33 +30,20 @@ const Local = () => {
     }
 
     useEffect(() => {
-        // Fetch lista de países da API REST Countries
-        axios(configCountry).then(response => {
-            const countryOptions = response.data.map(country => ({
-                value: country.iso2,
-                label: country.name
-            }));
-
-            setCountries(countryOptions);
-        })
-        .catch(error => {
-            console.error('Erro ao buscar países:', error);
-        });
+        setCountries([{value: "BR", label: "Brasil"}]);
     }, []);
 
     const handleCountryChange = (selectedOption) => {
         
         setSelectedCountry(selectedOption);
 
-        axios.get(`https://api.countrystatecity.in/v1/countries/${selectedOption.value}/states`)
+        axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
             .then(response => {
-                const stateOptions = response.data.states.map(state => ({
+                const stateOptions = response.data.map(state => ({
                     value: state.id,
-                    label: state.name
+                    label: state.nome
                 }));
             setStates(stateOptions);
-
-            console.log(stateOption.value);
         })
         .catch(error => {
             console.error('Erro ao buscar estados:', error);
@@ -73,12 +52,12 @@ const Local = () => {
 
     const handleStateChange = (selectedOption) => {
         setSelectedState(selectedOption);
-
-        axios.get(`https://api.example.com/cities?stateCode=${selectedOption.value}`)
+        console.log(selectedOption)
+        axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedOption.value}/municipios`)
             .then(response => {
-                const cityOptions = response.data.cities.map(city => ({
-                    value: city.id,
-                    label: city.name
+                const cityOptions = response.data.map(city => ({
+                    value: city.sigla,
+                    label: city.nome
                 }));
             setCities(cityOptions);
         })
