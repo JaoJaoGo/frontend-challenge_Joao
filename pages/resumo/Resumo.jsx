@@ -15,7 +15,7 @@ const Resumo = () => {
 
             <div className="dados">
                 <Dado nomeDado="João Víctor Guedes Carrijo" tipoDado="Nome:"/>
-                <Dado nomeDado="dorrrr2dorzinho@gmail.com" tipoDado="Email:"/>
+                <Dado nomeDado="jvgcarrijo@gmail.com" tipoDado="Email:"/>
                 <Dado nomeDado="Rua Hungria, Qd. 142, Lt. 15, Jardim Europa" tipoDado="Endereço:"/>
                 <Dado nomeDado="Brasil" tipoDado="País:"/>
                 <Dado nomeDado="Goiás" tipoDado="Estado:"/>
