@@ -8,11 +8,7 @@ import '../styles/Resumo.css'
 const Resumo = () => {
     const router = useRouter()
 
-    if(!router.isReady) {
-        return <div>Carregando...</div>
-    }
-
-    const form = JSON.parse(decodeURIComponent(router.asPath.split('?')[1].split('=')[1]));
+    const form  = router.query.form;
     console.log(form)
 
     return (
