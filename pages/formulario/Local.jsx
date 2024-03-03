@@ -4,7 +4,7 @@ import axios from "axios";
 
 import '../styles/Inputs.css'
 
-const Local = () => {
+const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
     const [countries, setCountries] = useState([]);
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
@@ -34,8 +34,12 @@ const Local = () => {
     }, []);
 
     const handleCountryChange = (selectedOption) => {
-        
         setSelectedCountry(selectedOption);
+
+        setForm({
+            ...form,
+            country: selectedOption.label
+        })
 
         axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
             .then(response => {
@@ -52,7 +56,12 @@ const Local = () => {
 
     const handleStateChange = (selectedOption) => {
         setSelectedState(selectedOption);
-        console.log(selectedOption)
+
+        setForm({
+            ...form,
+            state: selectedOption.label
+        })
+
         axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedOption.value}/municipios`)
             .then(response => {
                 const cityOptions = response.data.map(city => ({
@@ -68,6 +77,11 @@ const Local = () => {
 
     const handleCityChange = (selectedOption) => {
         setSelectedCity(selectedOption);
+
+        setForm({
+            ...form,
+            city: selectedOption.label
+        })
     };
 
     return (
@@ -76,6 +90,7 @@ const Local = () => {
                 <label>País:</label>
                 <Select
                     styles= {customStyles}
+                    name={nameCountry}
                     value={selectedCountry}
                     onChange={handleCountryChange}
                     options={countries}
@@ -85,6 +100,7 @@ const Local = () => {
                 <label>Estado:</label>
                 <Select
                     styles= {customStyles}
+                    name={nameState}
                     value={selectedState}
                     onChange={handleStateChange}
                     options={states}
@@ -94,6 +110,7 @@ const Local = () => {
                 <label>Cidade:</label>
                 <Select
                     styles= {customStyles}
+                    name={nameCity}
                     value={selectedCity}
                     onChange={handleCityChange}
                     options={cities}

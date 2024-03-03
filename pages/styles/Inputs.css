@@ -25,6 +25,7 @@ textarea {
     border-radius: 2px;
     padding: 4px;
     height: 100px;
+    font-size: 16px;
 }
 
 .local-itens {

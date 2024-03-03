@@ -1,10 +1,19 @@
-
+"use client";
+import { useRouter } from 'next/navigation'
 
 import Dado from './Dado'
 
 import '../styles/Resumo.css'
 
 const Resumo = () => {
+    const router = useRouter()
+
+    if(!router.isReady) {
+        return <div>Carregando...</div>
+    }
+
+    const form = JSON.parse(decodeURIComponent(router.asPath.split('?')[1].split('=')[1]));
+    console.log(form)
 
     return (
         <div className="box">
@@ -14,14 +23,14 @@ const Resumo = () => {
             <hr />
 
             <div className="dados">
-                <Dado nomeDado="João Víctor Guedes Carrijo" tipoDado="Nome:"/>
-                <Dado nomeDado="jvgcarrijo@gmail.com" tipoDado="Email:"/>
-                <Dado nomeDado="Rua Hungria, Qd. 142, Lt. 15, Jardim Europa" tipoDado="Endereço:"/>
-                <Dado nomeDado="Brasil" tipoDado="País:"/>
-                <Dado nomeDado="Goiás" tipoDado="Estado:"/>
-                <Dado nomeDado="Goiânia" tipoDado="Cidade:"/>
-                <Dado nomeDado="74330-330" tipoDado="CEP:"/>
-                <Dado nomeDado="Mano pelo amor de Deus como tá um inferno fazer isso aqui alguem me salva!!!" tipoDado="Mensagem:"/>
+                <Dado nomeDado={form.nome} tipoDado="Nome:"/>
+                <Dado nomeDado={form.email} tipoDado="Email:"/>
+                <Dado nomeDado={form.address} tipoDado="Endereço:"/>
+                <Dado nomeDado={form.country} tipoDado="País:"/>
+                <Dado nomeDado={form.state} tipoDado="Estado:"/>
+                <Dado nomeDado={form.city} tipoDado="Cidade:"/>
+                <Dado nomeDado={form.cep} tipoDado="CEP:"/>
+                <Dado nomeDado={form.message} tipoDado="Mensagem:"/>
             </div>
         </div>
     )

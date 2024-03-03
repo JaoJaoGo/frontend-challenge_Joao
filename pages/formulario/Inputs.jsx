@@ -1,12 +1,12 @@
 import '../styles/Inputs.css'
 
-const Inputs = ({ typeName, labelName }) => {
-    if(!typeName)
+const Inputs = ({ typeName, labelName, name, form, handleChange }) => {
+    if(typeName === null)
     {
         return (
             <div className="input-container">
                 <label>{labelName}</label>
-                <textarea />
+                <textarea value={form} name={name} onChange={handleChange}/>
             </div>
         )
     }
@@ -14,7 +14,7 @@ const Inputs = ({ typeName, labelName }) => {
     return (
         <div className="input-container">
             <label>{labelName}</label>
-            <input type={typeName} className="inputs-style" />
+            <input type={typeName} className="inputs-style" name={name} value={form} onChange={handleChange} />
         </div>
     )
 }
