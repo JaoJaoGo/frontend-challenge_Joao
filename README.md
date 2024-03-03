@@ -1,7 +1,27 @@
 ## Desafio Frontend - Imobilead
 * Feito por: João Víctor Guedes Carrijo.
 
-## Getting Started
+## Desafio
+1. Desenvolva um formulário com os campos abaixo incluindo todas as validações seguindo as melhores práticas:
+    - Nome (string|max:150)
+    - Email
+    - Senha (min:8|max:35|be:alphanumeric)
+    - Confirme Senha
+    - Endereço:
+    - Cidade:
+    - Estado:
+    - País:
+    - CEP:
+    - Mensagem:
+
+2. Aplique o máximo possível de recursos para melhorar a experiência do usuário durante o preenchimento e erros.
+
+3. A mensagem de sucesso deve conter:
+    - Uma tela informando que o registro foi efetuado com sucesso;
+    - Resumo dos dados submetidos mas que não mostre a senha, é claro.
+    - E a previsão do tempo do dia seguinte vinda de qualquer API grátis que preferir na internet. Não deve ser um embed, esperamos ver o mínimo chamada de uma api RESTful apartir do client neste caso.
+
+# Getting Started
 
 Primeiro, instale as dependências:
 
