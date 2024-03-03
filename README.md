@@ -1,12 +1,15 @@
+## Desafio Frontend - Imobilead
+* Feito por: João Víctor Guedes Carrijo.
+
 ## Getting Started
 
-First, install dependecies:
+Primeiro, instale as dependências:
 
 ```bash
 npm install
 ```
 
-Then, run the development server:
+Então, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -18,16 +21,14 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) em seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando `app/page.tsx`. A página é atualizada automaticamente conforme você edita o arquivo.
 
 ## Project Architecture:
 
-`app` Router for pages
+`app` Roteador para páginas
 
-`app/api` Internal api routes
+`pages` Componentes UI
 
-`components` UI components
-
-`services` external/internal services
+`services` Serviços externos/internos
