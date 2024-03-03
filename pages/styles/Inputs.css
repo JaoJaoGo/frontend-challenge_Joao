@@ -26,10 +26,17 @@ textarea {
     padding: 4px;
     height: 100px;
     font-size: 16px;
+    outline: none;
 }
 
 .local-itens {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

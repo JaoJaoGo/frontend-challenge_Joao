@@ -33,11 +33,18 @@ hr {
     width: 100%;
 }
 
-h1 {
+h1,
+h2 {
     font-weight: bold;
     color: #575756;
 }
 
+.previsaoTempo {
+    margin-top: 0;
+    width: 100%;
+}
+
 .dados {
     margin-top: 29px;
+    width: 100%;
 }

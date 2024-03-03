@@ -1,7 +1,9 @@
+// Imports de bibliotecas
 import { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from "axios";
 
+// Import de CSS
 import '../styles/Inputs.css'
 
 const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
@@ -13,6 +15,7 @@ const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
     const [selectedState, setSelectedState] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
 
+    // Aplica estilo para os Select de react-select
     const customStyles = {
         control: (baseStyles, state) => ({
             ...baseStyles,
@@ -28,8 +31,9 @@ const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
             display: 'none',
         })
     }
-
+    
     useEffect(() => {
+        // Iria ter todos os países com todos os estados e cidades, porém, não me passaram a chave API a tempo...
         setCountries([{value: "BR", label: "Brasil"}]);
     }, []);
 
@@ -94,6 +98,7 @@ const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
                     value={selectedCountry}
                     onChange={handleCountryChange}
                     options={countries}
+                    required
                 />
             </div>
             <div className="local-itens">
@@ -104,6 +109,7 @@ const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
                     value={selectedState}
                     onChange={handleStateChange}
                     options={states}
+                    required
                 />
             </div>
             <div className="local-itens">
@@ -114,6 +120,7 @@ const Local = ({ nameCountry, nameState, nameCity, form, setForm }) => {
                     value={selectedCity}
                     onChange={handleCityChange}
                     options={cities}
+                    required
                 />
             </div>
         </div>
