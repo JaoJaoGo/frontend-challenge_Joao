@@ -21,7 +21,7 @@
     - Resumo dos dados submetidos mas que não mostre a senha, é claro.
     - E a previsão do tempo do dia seguinte vinda de qualquer API grátis que preferir na internet. Não deve ser um embed, esperamos ver o mínimo chamada de uma api RESTful apartir do client neste caso.
 
-### Getting Started
+## Getting Started
 
 Primeiro, instale as dependências:
 
