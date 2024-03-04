@@ -7,6 +7,7 @@ import axios from "axios";
 
 // Import de arquivo
 import Dado from './Dado'
+import PrevisaoTempo from './PrevisaoTempo';
 
 // Import de CSS
 import '../styles/Resumo.css'
@@ -23,27 +24,29 @@ const Resumo = () => {
         clima: '',
     });
 
-    useEffect(() => {
-        // Pega os dados da previsão do tempo do próximo dia da API, baseado na cidade informada no formulário
-        axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${form.city}&appid=0a1ad9c402448229fe65a125654233f2`)
-        .then(response => {
-            const previsoes = response.data.list;
+    // Pega os dados da previsão do tempo do próximo dia da API, baseado na cidade informada no formulário
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${form.city}&appid=0a1ad9c402448229fe65a125654233f2`)
+    .then(response => {
+        const previsoes = response.data.list;
     
-            const amanha = new Date();
-            amanha.setDate(amanha.getDate() + 1);
-            const dataAmanha = amanha.toISOString().split('T')[0];
+        const amanha = new Date();
+        amanha.setDate(amanha.getDate() + 1);
+        const dataAmanha = amanha.toISOString().split('T')[0];
     
-            const previsaoDiaSeguinte = previsoes.find(item => item.dt_txt.includes(dataAmanha));
+        const previsaoDiaSeguinte = previsoes.find(item => item.dt_txt.includes(dataAmanha));
     
-            setClima((estadoAtual) => ({
-                ...estadoAtual,
-                dia: previsaoDiaSeguinte.dt_txt,
-                temperatura: (previsaoDiaSeguinte.main.temp - 273.15).toFixed(2) + '°C',
-                umidade: previsaoDiaSeguinte.main.humidity + ' g/m³',
-                clima: previsaoDiaSeguinte.weather[0].description.charAt(0).toUpperCase() + previsaoDiaSeguinte.weather[0].description.slice(1),
-            }))
-        })
-    }, [])
+        setClima((estadoAtual) => ({
+            ...estadoAtual,
+            dia: previsaoDiaSeguinte.dt_txt,
+            temperatura: (previsaoDiaSeguinte.main.temp - 273.15).toFixed(0),
+            umidade: previsaoDiaSeguinte.main.humidity,
+            clima: previsaoDiaSeguinte.weather[0].description.charAt(0).toUpperCase() + previsaoDiaSeguinte.weather[0].description.slice(1),
+        }))
+    })
+
+    const amanhaEstilizado = new Date();
+    amanhaEstilizado.setDate(amanhaEstilizado.getDate() + 1);
+    const dataAmanhaEstilizada = amanhaEstilizado.toISOString().split('T')[0].split('-').reverse().join('/');
 
     return (
         <div className="box">
@@ -65,14 +68,14 @@ const Resumo = () => {
 
             <hr />
 
-            <h2>Previsão de tempo de {form.city}</h2>
-
             <div className="previsaoTempo">
+                <h2>Previsão de tempo de {form.city} - ({dataAmanhaEstilizada})</h2>
 
-                <Dado nomeDado={clima.dia} tipoDado="Data:"/>
-                <Dado nomeDado={clima.temperatura} tipoDado="Temperatura:"/>
-                <Dado nomeDado={clima.umidade} tipoDado="Umidade do Ar:"/>
-                <Dado nomeDado={clima.clima} tipoDado="Clima:" />
+                <div className="previsaoTempo-container">
+                    <PrevisaoTempo nomeDado={clima.temperatura} tipoDado="Temperatura"/>
+                    <PrevisaoTempo nomeDado={clima.clima} tipoDado="Clima" />
+                    <PrevisaoTempo nomeDado={clima.umidade} tipoDado="Umidade"/>
+                </div>
             </div>
         </div>
     )

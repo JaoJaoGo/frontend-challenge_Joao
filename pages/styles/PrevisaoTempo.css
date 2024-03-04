@@ -1,0 +1,39 @@
+p {
+    margin: 0;
+}
+
+.clima-container,
+.temp-container,
+.umidade-container {
+    display: flex;
+    align-items: center;
+}
+
+.clima-container img,
+.umidade-container img {
+    height: 60px;
+    color: #575756;
+}
+
+.clima-container p {
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.temp-container img {
+    height: 45px;
+    color: #575756;
+}
+
+.temp-container p {
+    font-size: 40px;
+    font-weight: 600;
+    margin: -10px;
+    margin-right: 2%;
+}
+
+.umidade-container {
+    font-size: 40px;
+    font-weight: 600;
+}

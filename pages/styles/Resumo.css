@@ -33,14 +33,31 @@ hr {
     width: 100%;
 }
 
-h1,
-h2 {
+h1 {
     font-weight: bold;
     color: #575756;
 }
 
+h2 {
+    font-weight: bold;
+}
+
 .previsaoTempo {
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 5%;
+    padding: 10%;
+    padding-top: 0;
+    background-image: linear-gradient(to right bottom, yellow, cyan);
+    border-radius: 10px;
+}
+
+.previsaoTempo-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
     width: 100%;
 }
 
